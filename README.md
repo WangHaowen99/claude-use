@@ -112,6 +112,28 @@ Run `claude-providers` to see all valid provider names.
 
 Make sure you've reloaded your shell: `source ~/.bashrc`
 
+**"Auth conflict: Both a token and an API key are set"**
+
+This means your `~/.claude/settings.json` has an `apiKeyHelper` setting that conflicts with `claude-use`. You have two options:
+
+Option A — remove `apiKeyHelper` from settings.json (let claude-use manage auth):
+```bash
+# Edit ~/.claude/settings.json and remove the "apiKeyHelper" line
+```
+
+Option B — don't use claude-use, keep your existing apiKeyHelper setup.
+
+**"env" section in settings.json overrides claude-use**
+
+If your `~/.claude/settings.json` has an `"env"` block with `ANTHROPIC_BASE_URL`, those values take precedence over `claude-use`. Remove the conflicting env entries:
+```json
+// Remove or comment out these from settings.json:
+"env": {
+    "ANTHROPIC_BASE_URL": "...",
+    "ANTHROPIC_MODEL": "..."
+}
+```
+
 ## Repositories
 
 - GitHub: [WangHaowen99/claude-use](https://github.com/WangHaowen99/claude-use)
