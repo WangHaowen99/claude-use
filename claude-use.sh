@@ -5,7 +5,11 @@
 #        claude-which
 #        claude-providers
 
-set -euo pipefail
+# Guard: prevent double-sourcing
+if [[ "${__CLAUDE_USE_LOADED:-}" = "1" ]]; then
+    return 0
+fi
+__CLAUDE_USE_LOADED=1
 
 # ── Config ──────────────────────────────────────────────────
 # Credentials file path (override with CLAUDE_CODE_PROVIDER_ENV)

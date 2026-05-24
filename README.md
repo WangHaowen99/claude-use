@@ -17,29 +17,34 @@ Quickly switch Claude Code between different API providers (DeepSeek, Zhipu, Ali
 
 ```bash
 git clone https://github.com/WangHaowen99/claude-use.git ~/claude-use
-# or from Gitee:
+# or from Gitee (faster in China):
 # git clone https://gitee.com/wanghaowen2/claude-use.git ~/claude-use
 cd ~/claude-use
 bash install.sh
 ```
 
-Or manually:
+**After install, edit your credentials file:**
 
 ```bash
-# 1. Clone anywhere
-git clone https://github.com/WangHaowen99/claude-use.git ~/claude-use
-# or: git clone https://gitee.com/wanghaowen2/claude-use.git ~/claude-use
-
-# 2. Add to ~/.bashrc
-echo 'source ~/claude-use/claude-use.sh' >> ~/.bashrc
-
-# 3. Copy and edit credentials
-cp ~/claude-use/claude-code-providers.example.env ~/.claude-code-providers.env
-# Edit ~/.claude-code-providers.env and fill in your API keys
-
-# 4. Reload
-source ~/.bashrc
+vim ~/.claude-code-providers.env
+# Fill in your API keys for the providers you use.
+# Leave unused providers blank.
 ```
+
+Then reload your shell:
+
+```bash
+source ~/.bashrc
+claude-which
+```
+
+## Prerequisites
+
+- Bash 4.0+
+- `paste` (from GNU coreutils, pre-installed on Linux/macOS)
+- Claude Code (`claude` command)
+
+Tested on Ubuntu 24.04 LTS.
 
 ## Usage
 
@@ -85,6 +90,27 @@ CLAUDE_CODE_ANTHROPIC_API_KEY='sk-ant-...'
 ## How It Works
 
 Claude Code reads `ANTHROPIC_BASE_URL` and `ANTHROPIC_API_KEY` / `ANTHROPIC_AUTH_TOKEN` from the environment. `claude-use` sets these variables to point Claude Code at different API providers that implement the Anthropic-compatible API.
+
+## Troubleshooting
+
+**`claude-use deepseek` shows "credential is missing"**
+
+Edit `~/.claude-code-providers.env` and set your API key:
+```bash
+CLAUDE_CODE_DEEPSEEK_AUTH_TOKEN='sk-your-actual-key'
+```
+
+**`claude-which` shows `provider: unknown`**
+
+Your env file hasn't been sourced yet. Run `source ~/.bashrc` or open a new terminal.
+
+**`claude-use: unknown provider: xxx`**
+
+Run `claude-providers` to see all valid provider names.
+
+**Commands not found after install**
+
+Make sure you've reloaded your shell: `source ~/.bashrc`
 
 ## Repositories
 
