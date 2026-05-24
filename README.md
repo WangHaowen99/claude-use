@@ -16,7 +16,9 @@ Quickly switch Claude Code between different API providers (DeepSeek, Zhipu, Ali
 ## Quick Install
 
 ```bash
-git clone https://github.com/whw/claude-use.git ~/claude-use
+git clone https://github.com/WangHaowen99/claude-use.git ~/claude-use
+# or from Gitee:
+# git clone https://gitee.com/wanghaowen2/claude-use.git ~/claude-use
 cd ~/claude-use
 bash install.sh
 ```
@@ -25,7 +27,8 @@ Or manually:
 
 ```bash
 # 1. Clone anywhere
-git clone https://github.com/whw/claude-use.git ~/claude-use
+git clone https://github.com/WangHaowen99/claude-use.git ~/claude-use
+# or: git clone https://gitee.com/wanghaowen2/claude-use.git ~/claude-use
 
 # 2. Add to ~/.bashrc
 echo 'source ~/claude-use/claude-use.sh' >> ~/.bashrc
@@ -82,6 +85,11 @@ CLAUDE_CODE_ANTHROPIC_API_KEY='sk-ant-...'
 ## How It Works
 
 Claude Code reads `ANTHROPIC_BASE_URL` and `ANTHROPIC_API_KEY` / `ANTHROPIC_AUTH_TOKEN` from the environment. `claude-use` sets these variables to point Claude Code at different API providers that implement the Anthropic-compatible API.
+
+## Repositories
+
+- GitHub: [WangHaowen99/claude-use](https://github.com/WangHaowen99/claude-use)
+- Gitee: [wanghaowen2/claude-use](https://gitee.com/wanghaowen2/claude-use)
 
 ## License
 
