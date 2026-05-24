@@ -35,7 +35,7 @@ __claude_code_optional_export() {
 # ── Provider registry ───────────────────────────────────────
 
 claude-providers() {
-    printf '%s\n' zhipu deepseek aliyun dashscope aliyun-intl aliyun-coding packycode anthropic
+    printf '%s\n' zhipu deepseek aliyun dashscope aliyun-intl aliyun-coding packycode freemodel anthropic
 }
 
 __claude_code_apply_provider() {
@@ -97,6 +97,19 @@ __claude_code_apply_provider() {
             credential_kind="api_key"
             model="${CLAUDE_CODE_PACKYCODE_MODEL:-}"
             ;;
+        freemodel)
+            provider="freemodel"
+            base_url="${CLAUDE_CODE_FREEMODEL_BASE_URL:-}"
+            api_key="${CLAUDE_CODE_FREEMODEL_API_KEY:-}"
+            credential_kind="api_key"
+            model="${CLAUDE_CODE_FREEMODEL_MODEL:-}"
+            small_fast_model="${CLAUDE_CODE_FREEMODEL_SMALL_FAST_MODEL:-}"
+            haiku_model="${CLAUDE_CODE_FREEMODEL_DEFAULT_HAIKU_MODEL:-}"
+            sonnet_model="${CLAUDE_CODE_FREEMODEL_DEFAULT_SONNET_MODEL:-}"
+            opus_model="${CLAUDE_CODE_FREEMODEL_DEFAULT_OPUS_MODEL:-}"
+            subagent_model="${CLAUDE_CODE_FREEMODEL_SUBAGENT_MODEL:-}"
+            ;;
+
         anthropic|claude)
             provider="anthropic"
             api_key="${CLAUDE_CODE_ANTHROPIC_API_KEY:-}"

@@ -12,6 +12,7 @@ Quickly switch Claude Code between different API providers (DeepSeek, Zhipu, Ali
 | `aliyun-intl` | Aliyun DashScope International |
 | `aliyun-coding` | Aliyun Coding DashScope |
 | `packycode` | PackyCode API (GPT via Anthropic protocol) |
+| `freemodel` | FreeModel API (cc.freemodel.dev) |
 | `anthropic` / `claude` | Official Anthropic API |
 
 ## Quick Install
